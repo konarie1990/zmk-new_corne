@@ -47,8 +47,8 @@ layers:
   - NUM
   - $$mdi:keyboard-space$$
   - $$mdi:keyboard-space$$
+  - NUM
   - SYS
-  - $$mdi:keyboard-tab$$
   NUM:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '1', s: '!'}
@@ -65,7 +65,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - HOME
-  - END
+  - F3
   - $$mdi:keyboard-tab$$
   - $$mdi:apple-keyboard-option$$
   - PG UP
@@ -79,10 +79,10 @@ layers:
   - {t: ']', s: '}'}
   - {t: \, s: '|'}
   - {t: '$$mdi:transfer$$', type: trans}
-  - $$mdi:backspace-reverse-outline$$
-  - $$mdi:mouse-left-click-outline$$
-  - F3
-  - $$mdi:mouse-right-click-outline$$
+  - END
+  - {t: X, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: C, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: V, h: '$$mdi:apple-keyboard-command$$'}
   - PG DN
   - $$mdi:volume-off$$
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
@@ -96,23 +96,23 @@ layers:
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held alternate}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   SYS:
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
   - {h: '3', s: '$$mdi:bluetooth-connect$$'}
   - {h: '4', s: '$$mdi:bluetooth-connect$$'}
   - {h: '5', s: '$$mdi:bluetooth-connect$$'}
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
-  - F1
-  - F2
-  - F10
-  - F11
-  - F12
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:backup-restore$$', type: bootloader}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - EP TOG
   - $$mdi:bluetooth-off$$
   - BT CLR ALL
   - OUT USB
@@ -122,12 +122,12 @@ layers:
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - $$mdi:volume-off$$
+  - $$mdi:volume-high$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - $$mdi:arrow-up-bold$$
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - EP TOG
   - {t: '$$mdi:backup-restore$$', type: bootloader}
-  - {t: '$$mdi:transfer$$', type: trans}
   - RGB OFF
   - RGB ON
   - RGB EFF
@@ -136,14 +136,14 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - $$mdi:arrow-left-bold$$
-  - $$mdi:arrow-down-bold$$
-  - $$mdi:arrow-right-bold$$
+  - F1
+  - $$mdi:volume-low$$
+  - F2
   - {t: '$$mdi:minus-circle-outline$$', type: none}
-  - EP TOG
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:backup-restore$$', type: bootloader}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {type: held}
-  - {t: '$$mdi:transfer$$', type: trans}
