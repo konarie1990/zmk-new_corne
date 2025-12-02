@@ -1,5 +1,5 @@
 #include <input/processors.dtsi>
-#include "boards/shields/my_keyboard/eyelash_common.keymap"
+#include "eyelash_common.keymap"
 
 /*
    &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
