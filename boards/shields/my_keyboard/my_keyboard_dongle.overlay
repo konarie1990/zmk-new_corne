@@ -1,17 +1,11 @@
 #include <dt-bindings/zmk/matrix_transform.h>
-#include <dt-bindings/i2c/i2c.h>
 
 / {
     chosen {
-        /* keep the dongle “fake keyboard” setup */
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &physical_layout0;
-
-        /* tell Zephyr/ZMK which display to use */
-        zephyr,display = &oled;
     };
 
-    /* minimal kscan so the dongle app boots */
     mock_kscan: mock_kscan_0 {
         compatible = "zmk,kscan-mock";
         columns = <0>;
@@ -38,41 +32,10 @@
     };
 };
 
-/* --- OLED on nice!nano’s Pro Micro I²C header (SDA/SCL) --- */
+/* Enable the Pro Micro I2C bus used by nice!nano; pins come from pinctrl */
 &pro_micro_i2c {
     status = "okay";
-    sda-pin = <6>;
-    scl-pin = <7>;
-    clock-frequency = <I2C_BITRATE_FAST>;
-
-    /* ===== Default: 1.3" SH1106 128x64 ===== */
-    oled: sh1106@3c {
-        compatible = "sinowealth,sh1106";
-        reg = <0x3c>;            /* try 0x3d if your panel uses it */
-        width = <128>;
-        height = <64>;
-        segment-offset = <2>;    /* avoids the “shifted/scrambled” look */
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <63>;
-        segment-remap;
-        com-invdir;
-        prechargep = <0x22>;
-    };
-
-    /* ===== Alternate: SSD1306 (commented) =====
-    oled: ssd1306@3c {
-        compatible = "solomon,ssd1306fb";
-        reg = <0x3c>;
-        width = <128>;
-        height = <64>;           // set to <32> for 128x32 panels
-        segment-offset = <0>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <63>;  // use <31> for 128x32
-        segment-remap;
-        com-invdir;
-        prechargep = <0x22>;
-    };
-    */
-};
+    /* Optional: uncomment to change speed
+     * clock-frequency = <I2C_BITRATE_STANDARD>; // or I2C_BITRATE_FAST
+     */
+}
