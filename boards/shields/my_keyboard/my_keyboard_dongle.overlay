@@ -2,20 +2,15 @@
 
 / {
     chosen {
-        /* Keep the dongle “fake keyboard” setup */
+        /* keep the dongle “fake keyboard” setup */
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &physical_layout0;
 
-        /* Point Zephyr/ZMK at the OLED device below */
+        /* tell Zephyr/ZMK which display to use */
         zephyr,display = &oled;
     };
 
-    /* If any module expects xiao_i2c, map it to the nice!nano’s Pro Micro I2C */
-    aliases {
-        xiao_i2c = &pro_micro_i2c;
-    };
-
-    /* Minimal kscan + layout so ZMK app boots on a dongle */
+    /* minimal kscan so the dongle app boots */
     mock_kscan: mock_kscan_0 {
         compatible = "zmk,kscan-mock";
         columns = <0>;
@@ -42,42 +37,38 @@
     };
 };
 
-/* --- OLED on nice!nano’s Pro Micro I2C header (SDA/SCL) --- */
+/* --- OLED on nice!nano’s Pro Micro I²C header (SDA/SCL) --- */
 &pro_micro_i2c {
     status = "okay";
-    /* Optional but common; most panels are OK at 400kHz */
     bus-speed = <I2C_BITRATE_FAST>;
 
     /* ===== Default: 1.3" SH1106 128x64 ===== */
     oled: sh1106@3c {
         compatible = "sinowealth,sh1106";
-        reg = <0x3c>;
+        reg = <0x3c>;            /* try 0x3d if your panel uses it */
         width = <128>;
         height = <64>;
-        /* SH1106 needs segment offset 2 for proper centering */
-        segment-offset = <2>;
+        segment-offset = <2>;    /* avoids the “shifted/scrambled” look */
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <63>;
         segment-remap;
         com-invdir;
-        inversion-on;
         prechargep = <0x22>;
     };
 
-    /* ===== Alternate: 0.91"/1.3" SSD1306 =====
+    /* ===== Alternate: SSD1306 (commented) =====
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>;
-        height = <64>;         // Use <32> for 128x32 panels
+        height = <64>;           // set to <32> for 128x32 panels
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <63>; // For 128x32 use <31>
+        multiplex-ratio = <63>;  // use <31> for 128x32
         segment-remap;
         com-invdir;
-        inversion-on;
         prechargep = <0x22>;
     };
     */
