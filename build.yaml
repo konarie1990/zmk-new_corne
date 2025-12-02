@@ -1,7 +1,7 @@
 include:
   # --- Dongle central ---
   - board: nice_nano_v2
-    shield: my_keyboard_dongle
+    shield: my_keyboard_dongle dongle_display
   - board: nice_nano_v2
     shield: settings_reset
 
