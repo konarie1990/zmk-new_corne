@@ -2,17 +2,24 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-      # Additional modules containing boards/shields/custom code can be listed here as well.
-      # See:
-      # - https://zmk.dev/docs/features/modules
-      # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
+
   projects:
+    # (Optional) you can remove this if you don’t intentionally use it as a module:
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
+
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+
+    # NEW: pulls the dongle display module
+    - name: zmk-dongle-display
+      remote: englmaxi
+      revision: main
+
   self:
     path: config
