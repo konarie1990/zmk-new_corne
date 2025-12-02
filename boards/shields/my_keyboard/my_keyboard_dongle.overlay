@@ -5,7 +5,24 @@
         zmk,kscan = &mock_kscan;
         zmk,physical-layout = &physical_layout0;
     };
-
+        /* Enable I2C0 and set frequency via standard define */
+        &i2c0 {
+            status = "okay";
+            clock-frequency = <I2C_BITRATE_STANDARD>;
+            pinctrl-0 = <&i2c0_default>;
+            pinctrl-names = "default";
+        };
+        
+        /* Pick the actual pins your dongle uses for OLED (examples shown) */
+        &pinctrl {
+            i2c0_default: i2c0_default {
+                group1 {
+                    /* Example: TWIM SCL on P0.03, SDA on P0.02 — adjust as needed */
+                    psels = <NRF_PSEL(TWIM_SCL, 0, 3)>, <NRF_PSEL(TWIM_SDA, 0, 2)>;
+                    bias-pull-up;
+                };
+            };
+        };
     mock_kscan: mock_kscan_0 {
         compatible = "zmk,kscan-mock";
         columns = <0>;
