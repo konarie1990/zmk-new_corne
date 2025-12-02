@@ -3,9 +3,10 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "config/**"
-      - .github/workflows/draw.yml
-      - keymap_drawer.config.yaml
+      - "config/eyelash_corne.keymap"
+      - "config/*.dtsi"
+      - "keymap_drawer.config.yaml"
+      - ".github/workflows/draw.yml"
 
 jobs:
   draw:
@@ -13,6 +14,11 @@ jobs:
     permissions:
       contents: write
     with:
-      commit_message: "[Draw] ${{ github.event.head_commit.message }}"
+      # Only draw this one keymap (prevents it from trying eyelash_common)
+      keymap_patterns: |
+        config/eyelash_corne.keymap
+      # Optional: the drawer’s config file (ignored if it doesn’t exist)
+      config_path: "keymap_drawer.config.yaml"
+      # Where to write SVG/YAML; “commit” = commit them back
       destination: "commit"
-      fail_on_error: ${{ fromJSON(true) }}
+      commit_message: "[Draw] ${{ github.event.head_commit.message }}"
