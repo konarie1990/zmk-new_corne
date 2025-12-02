@@ -1,6 +1,8 @@
-#include <behaviors.dtsi>
+/* Root-level include for ZIP input processors (must be outside any node) */
 #include <input/processors.dtsi>
-#include "../boards/shields/my_keyboard/eyelash_common.keymap"
+
+/* Shared bindings/macros, kept in config so both halves and dongle builds can see it */
+#include "eyelash_common.keymap"
 
 /*
    &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
