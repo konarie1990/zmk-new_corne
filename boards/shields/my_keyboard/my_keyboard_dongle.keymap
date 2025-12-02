@@ -1,2 +1,1 @@
-/* Reuse the main keymap for dongle-central builds */
-#include "../../../eyelash_corne.keymap"
+#include "../../../config/eyelash_corne.keymap"
