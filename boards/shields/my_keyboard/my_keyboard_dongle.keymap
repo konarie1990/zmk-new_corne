@@ -1,1 +1,2 @@
-#include "../../../config/eyelash_corne.keymap"
+#include <input/processors.dtsi>
+#include "config/eyelash_common.keymap"
