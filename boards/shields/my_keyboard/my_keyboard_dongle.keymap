@@ -1,2 +1,1 @@
-#include <input/processors.dtsi>
 #include "config/eyelash_common.keymap"
