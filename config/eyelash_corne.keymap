@@ -1,8 +1,10 @@
-/* Root-level include for ZIP input processors (must be outside any node) */
-#include <input/processors.dtsi>
+/* Root-level includes allowed in .keymap */
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/matrix_transform.h>
 
-/* Shared bindings/macros, kept in config so both halves and dongle builds can see it */
-#include "eyelash_common.keymap"
+/* Pull in shared bindings/macros (rename to .dtsi so it can't be accidentally treated as a full keymap) */
+#include "partials/eyelash_common.dtsi"
 
 /*
    &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
